@@ -27,23 +27,38 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     try {
-      // In a real application, you would send this data to your backend
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for your message. I'll get back to you soon.",
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-      
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        toast({
+          title: "Error sending message",
+          description: result.message || "Please try again later.",
+          variant: "destructive",
+        });
+      }
     } catch (error) {
+      console.error('Contact form error:', error);
       toast({
         title: "Error sending message",
         description: "Please try again later or contact me directly via email.",
@@ -97,7 +112,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Location</h4>
-                  <p className="text-muted-foreground">Chandigarh University, Punjab, India</p>
+                  <p className="text-muted-foreground">Chandigarh, Mohali, Punjab, India</p>
                 </div>
               </div>
             </div>

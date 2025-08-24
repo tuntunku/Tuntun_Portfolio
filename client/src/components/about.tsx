@@ -29,7 +29,7 @@ export default function About() {
               </div>
               <div className="flex items-center space-x-3">
                 <i className="fas fa-map-marker-alt text-primary-600 dark:text-primary-500"></i>
-                <span className="text-foreground">Chandigarh University</span>
+                <span className="text-foreground">Chandigarh, Mohali</span>
               </div>
             </div>
           </div>
