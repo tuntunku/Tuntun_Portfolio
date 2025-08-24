@@ -82,24 +82,46 @@ export default function Experience() {
               <div>
                 <h4 className="font-semibold text-card-foreground mb-2">Technologies & Skills:</h4>
                 <div className="flex flex-wrap gap-2">
-                  {experience.skills.map((skill) => (
-                    <span 
-                      key={skill}
-                      className={`px-3 py-1 rounded-full text-sm ${
-                        skill === '.NET' 
-                          ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 cursor-pointer hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors duration-200' 
-                          : 'bg-muted text-muted-foreground'
-                      }`}
-                      onClick={() => {
-                        if (skill === '.NET') {
-                          window.open('https://dotnet.microsoft.com/', '_blank');
-                        }
-                      }}
-                      data-testid={`skill-tag-${skill.toLowerCase().replace(/\s+/g, '-')}`}
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                  {experience.skills.map((skill) => {
+                    const getSkillUrl = (skillName: string): string | null => {
+                      const urls: { [key: string]: string } = {
+                        '.NET': 'https://dotnet.microsoft.com/',
+                        'C#': 'https://docs.microsoft.com/en-us/dotnet/csharp/',
+                        'ASP.NET': 'https://dotnet.microsoft.com/en-us/apps/aspnet',
+                        'SQL Server': 'https://docs.microsoft.com/en-us/sql/sql-server/',
+                        'Full Stack Development': 'https://developer.mozilla.org/en-US/docs/Learn',
+                        'Blockchain': 'https://ethereum.org/en/developers/docs/',
+                        'Ethereum': 'https://ethereum.org/en/',
+                        'Polygon': 'https://polygon.technology/',
+                        'Smart Contracts': 'https://ethereum.org/en/developers/docs/smart-contracts/',
+                        'JavaScript': 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'
+                      };
+                      return urls[skillName] || null;
+                    };
+
+                    const url = getSkillUrl(skill);
+                    const isClickable = url !== null;
+
+                    return (
+                      <span 
+                        key={skill}
+                        className={`px-3 py-1 rounded-full text-sm transition-colors duration-200 ${
+                          isClickable
+                            ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 cursor-pointer hover:bg-blue-200 dark:hover:bg-blue-900/50' 
+                            : 'bg-muted text-muted-foreground'
+                        }`}
+                        onClick={() => {
+                          if (url) {
+                            window.open(url, '_blank');
+                          }
+                        }}
+                        data-testid={`skill-tag-${skill.toLowerCase().replace(/\s+/g, '-')}`}
+                        title={isClickable ? `Learn more about ${skill}` : undefined}
+                      >
+                        {skill}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             </div>
