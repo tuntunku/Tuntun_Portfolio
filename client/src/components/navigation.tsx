@@ -28,13 +28,13 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-background/80 dark:bg-background/80 backdrop-blur-md z-50 border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 glass-card z-50 border-b border-border/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <a 
               href="#home" 
-              className="text-2xl font-bold text-primary-600 dark:text-primary-500"
+              className="text-3xl font-bold gradient-text hover:scale-105 transform transition-all duration-200"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToSection('#home');
@@ -52,7 +52,7 @@ export default function Navigation() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="px-3 py-2 rounded-md text-sm font-medium hover:text-primary-600 dark:hover:text-primary-500 transition-colors duration-200"
+                  className="px-4 py-2 rounded-xl text-sm font-medium hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200"
                   onClick={(e) => {
                     e.preventDefault();
                     scrollToSection(item.href);
@@ -72,8 +72,9 @@ export default function Navigation() {
               size="icon"
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
               data-testid="theme-toggle"
+              className="rounded-xl glass-card hover:bg-primary-100 dark:hover:bg-primary-900/30 border-primary-200 dark:border-primary-800"
             >
-              <i className={`fas ${theme === 'light' ? 'fa-moon' : 'fa-sun'} ${theme === 'light' ? 'text-gray-600' : 'text-yellow-400'}`}></i>
+              <i className={`fas ${theme === 'light' ? 'fa-moon' : 'fa-sun'} ${theme === 'light' ? 'text-primary-600' : 'text-yellow-400'}`}></i>
               <span className="sr-only">Toggle theme</span>
             </Button>
             

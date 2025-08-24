@@ -38,7 +38,7 @@ export default function Experience() {
           {experiences.map((experience) => (
             <div 
               key={experience.title}
-              className="bg-card rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300"
+              className="glass-card rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-500 hover:scale-105 transform"
               data-testid={`experience-${experience.title.toLowerCase().replace(/\s+/g, '-')}`}
             >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">

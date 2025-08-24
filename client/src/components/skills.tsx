@@ -74,8 +74,8 @@ export default function Skills() {
 
         {/* Database & Tools */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-          <div className="bg-card p-6 rounded-lg shadow-lg">
-            <h4 className="text-xl font-bold text-card-foreground mb-4">Databases</h4>
+          <div className="glass-card p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+            <h4 className="text-xl font-bold text-card-foreground mb-4 gradient-text">Databases</h4>
             <div className="flex flex-wrap gap-2">
               {databases.map((db) => (
                 <span 
@@ -89,8 +89,8 @@ export default function Skills() {
             </div>
           </div>
           
-          <div className="bg-card p-6 rounded-lg shadow-lg">
-            <h4 className="text-xl font-bold text-card-foreground mb-4">Tools & Concepts</h4>
+          <div className="glass-card p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+            <h4 className="text-xl font-bold text-card-foreground mb-4 gradient-text">Tools & Concepts</h4>
             <div className="flex flex-wrap gap-2">
               {tools.map((tool) => (
                 <span 
@@ -109,13 +109,13 @@ export default function Skills() {
         <div className="mt-12">
           <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Certifications</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-card p-6 rounded-lg shadow-lg">
+            <div className="glass-card p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform">
               <h4 className="font-semibold text-card-foreground">Blockchain A-Z: Building Decentralized Applications</h4>
               <p className="text-primary-600 dark:text-primary-500">Infosys Springboard</p>
               <p className="text-muted-foreground">Jun 2023 – Jul 2023 | 36 hours</p>
             </div>
             
-            <div className="bg-card p-6 rounded-lg shadow-lg">
+            <div className="glass-card p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform">
               <h4 className="font-semibold text-card-foreground">Quantum Mechanics for Engineers</h4>
               <p className="text-primary-600 dark:text-primary-500">Coursera</p>
               <p className="text-muted-foreground">Oct 2023 – Nov 2023</p>

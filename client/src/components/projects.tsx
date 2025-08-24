@@ -67,14 +67,17 @@ export default function Projects() {
           {projects.map((project) => (
             <div 
               key={project.title}
-              className="bg-muted/20 dark:bg-accent/10 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+              className="glass-card rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 group"
               data-testid={`project-card-${project.title.toLowerCase().replace(/\s+/g, '-')}`}
             >
-              <img 
-                src={project.image} 
-                alt={`${project.title} Project`} 
-                className="w-full h-48 object-cover"
-              />
+              <div className="relative overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={`${project.title} Project`} 
+                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
               
               <div className="p-6">
                 <div className="flex items-center justify-between mb-3">
