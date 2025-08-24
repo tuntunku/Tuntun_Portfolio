@@ -29,13 +29,13 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 glass-card z-50 border-b border-border/20">
+    <nav className="fixed top-0 left-0 right-0 glass-card z-50 border-b border-border/20 backdrop-blur-3xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-18">
           <div className="flex-shrink-0">
             <a 
               href="#home" 
-              className="text-3xl font-bold gradient-text hover:scale-105 transform transition-all duration-200"
+              className="text-4xl font-bold gradient-text hover:scale-110 transform transition-all duration-300 glow-button"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToSection('#home');
@@ -53,7 +53,7 @@ export default function Navigation() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="px-4 py-2 rounded-xl text-sm font-medium hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200"
+                  className="px-5 py-3 rounded-2xl text-sm font-medium glass-card hover:shadow-lg hover:scale-105 transform transition-all duration-300 relative overflow-hidden group"
                   onClick={(e) => {
                     e.preventDefault();
                     if (item.href.startsWith('/')) {
@@ -77,7 +77,7 @@ export default function Navigation() {
               size="icon"
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
               data-testid="theme-toggle"
-              className="rounded-xl glass-card hover:bg-primary-100 dark:hover:bg-primary-900/30 border-primary-200 dark:border-primary-800"
+              className="rounded-2xl glass-card hover:shadow-xl hover:scale-110 transform transition-all duration-300 border-primary-200/50 dark:border-primary-800/50"
             >
               <i className={`fas ${theme === 'light' ? 'fa-moon' : 'fa-sun'} ${theme === 'light' ? 'text-primary-600' : 'text-yellow-400'}`}></i>
               <span className="sr-only">Toggle theme</span>
