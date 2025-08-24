@@ -85,7 +85,16 @@ export default function Experience() {
                   {experience.skills.map((skill) => (
                     <span 
                       key={skill}
-                      className="bg-muted text-muted-foreground px-3 py-1 rounded-full text-sm"
+                      className={`px-3 py-1 rounded-full text-sm ${
+                        skill === '.NET' 
+                          ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 cursor-pointer hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors duration-200' 
+                          : 'bg-muted text-muted-foreground'
+                      }`}
+                      onClick={() => {
+                        if (skill === '.NET') {
+                          window.open('https://dotnet.microsoft.com/', '_blank');
+                        }
+                      }}
                       data-testid={`skill-tag-${skill.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {skill}

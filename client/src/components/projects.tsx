@@ -8,7 +8,7 @@ export default function Projects() {
       period: "Jan - Feb 2023",
       description: "Built a responsive front-end clone of Spotify with play/pause controls and dynamic playlist sections using JavaScript and DOM manipulation.",
       technologies: ["HTML", "CSS", "JavaScript"],
-      image: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+      image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
       techColors: {
         "HTML": "bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200",
         "CSS": "bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200",
@@ -32,7 +32,7 @@ export default function Projects() {
       period: "Dec 2023 - Jan 2024",
       description: "Designed a Java-based GUI application with hotel booking, package selection, and payment simulation using object-oriented design and Swing.",
       technologies: ["Java", "Swing", "OOP"],
-      image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+      image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
       techColors: {
         "Java": "bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200",
         "Swing": "bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200",
@@ -44,7 +44,7 @@ export default function Projects() {
       period: "Aug - Sep 2023",
       description: "Console-based application for storing and modifying student details, including auto-generated IDs and file handling for persistence.",
       technologies: ["C++", "File Handling", "Console App"],
-      image: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
       techColors: {
         "C++": "bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200",
         "File Handling": "bg-gray-100 dark:bg-gray-700/30 text-gray-800 dark:text-gray-200",
