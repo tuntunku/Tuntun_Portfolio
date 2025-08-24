@@ -61,12 +61,12 @@ export default function About() {
 
         {/* Hobbies & Interests */}
         <div className="mt-16 text-center">
-          <h3 className="text-2xl font-bold text-foreground mb-8">Hobbies & Interests</h3>
+          <h3 className="text-2xl font-bold gradient-text mb-8">Hobbies & Interests</h3>
           <div className="flex flex-wrap justify-center gap-4">
             {['Cricket', 'Cooking', 'Traveling', 'Problem Solving', 'Learning New Technologies'].map((hobby) => (
               <span 
                 key={hobby}
-                className="bg-primary-100 dark:bg-primary-900/20 text-primary-800 dark:text-primary-200 px-4 py-2 rounded-full"
+                className="glass-card bg-primary-100/50 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 px-6 py-3 rounded-2xl font-medium hover:scale-105 transform transition-all duration-300 hover:shadow-lg"
                 data-testid={`hobby-${hobby.toLowerCase().replace(' ', '-')}`}
               >
                 {hobby}

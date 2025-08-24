@@ -151,8 +151,8 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-card p-8 rounded-lg shadow-lg">
-            <h3 className="text-2xl font-bold text-card-foreground mb-6">Send me a message</h3>
+          <div className="glass-card p-8 rounded-2xl shadow-lg">
+            <h3 className="text-2xl font-bold gradient-text mb-6">Send me a message</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
