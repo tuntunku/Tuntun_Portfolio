@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import professionalPhoto from "@assets/Lovepic_1756042231820.jpg";
+import professionalPhoto from "@assets/Lovepic_1756042726925.jpg";
 
 export default function Hero() {
   const scrollToSection = (sectionId: string) => {
