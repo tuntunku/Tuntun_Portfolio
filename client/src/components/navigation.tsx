@@ -13,6 +13,7 @@ export default function Navigation() {
     { href: "#skills", label: "Skills" },
     { href: "#projects", label: "Projects" },
     { href: "#contact", label: "Contact" },
+    { href: "/messages", label: "Messages" },
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -55,7 +56,11 @@ export default function Navigation() {
                   className="px-4 py-2 rounded-xl text-sm font-medium hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200"
                   onClick={(e) => {
                     e.preventDefault();
-                    scrollToSection(item.href);
+                    if (item.href.startsWith('/')) {
+                      window.location.href = item.href;
+                    } else {
+                      scrollToSection(item.href);
+                    }
                   }}
                   data-testid={`nav-${item.label.toLowerCase()}`}
                 >
