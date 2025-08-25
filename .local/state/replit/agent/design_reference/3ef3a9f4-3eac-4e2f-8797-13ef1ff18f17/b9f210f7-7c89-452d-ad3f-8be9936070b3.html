@@ -1,0 +1,982 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuntun Kumar - Software Engineer Portfolio</title>
+    <meta name="description" content="Tuntun Kumar - Final Year B.E. Student & Aspiring Software Engineer. Explore my projects, skills, and experience in Python, Java, SQL, and C++.">
+    <meta name="keywords" content="Tuntun Kumar, Software Engineer, Python, Java, SQL, C++, Portfolio, Computer Science">
+    <meta name="author" content="Tuntun Kumar">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Tuntun Kumar - Software Engineer Portfolio">
+    <meta property="og:description" content="Final Year B.E. Student & Aspiring Software Engineer">
+    <meta property="og:type" content="website">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Tuntun Kumar",
+        "jobTitle": "Software Engineer",
+        "description": "Final Year B.E. Student & Aspiring Software Engineer",
+        "email": "tuntun830344@gmail.com",
+        "url": "https://tuntunkumar.dev",
+        "sameAs": [
+            "https://github.com/",
+            "https://www.linkedin.com/in/tuntun-kumar-01a7a5255/"
+        ]
+    }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                fontFamily: {
+                    'inter': ['Inter', 'sans-serif']
+                },
+                colors: {
+                    primary: {
+                        50: '#eff6ff',
+                        500: '#3b82f6',
+                        600: '#2563eb',
+                        700: '#1d4ed8',
+                        900: '#1e3a8a'
+                    }
+                },
+                animation: {
+                    'fade-in': 'fadeIn 0.6s ease-in-out',
+                    'slide-up': 'slideUp 0.6s ease-out',
+                    'float': 'float 3s ease-in-out infinite'
+                }
+            }
+        }
+    };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glass-effect {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+
+<body class="font-inter bg-white dark:bg-slate-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <!-- @COMPONENT: Navigation [sticky navigation with theme toggle] -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-effect">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-2xl font-bold gradient-text">TK</a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about" class="hover:text-primary-500 transition-colors duration-200">About</a>
+                        <a href="#skills" class="hover:text-primary-500 transition-colors duration-200">Skills</a>
+                        <a href="#projects" class="hover:text-primary-500 transition-colors duration-200">Projects</a>
+                        <a href="#resume" class="hover:text-primary-500 transition-colors duration-200">Resume</a>
+                        <a href="#contact" class="hover:text-primary-500 transition-colors duration-200">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- Theme Toggle & Mobile Menu -->
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+                        <i class="fas fa-sun dark:hidden text-yellow-500"></i>
+                        <i class="fas fa-moon hidden dark:block text-blue-400"></i>
+                    </button>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden hidden glass-effect">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#about" class="block px-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md">About</a>
+                <a href="#skills" class="block px-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md">Skills</a>
+                <a href="#projects" class="block px-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md">Projects</a>
+                <a href="#resume" class="block px-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md">Resume</a>
+                <a href="#contact" class="block px-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navigation -->
+
+    <!-- @COMPONENT: Hero Section [main landing area with animated elements] -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-900 dark:to-slate-800"></div>
+        
+        <!-- Floating background elements -->
+        <div class="absolute top-20 left-10 w-72 h-72 bg-blue-300 dark:bg-blue-900 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-xl opacity-30 animate-float"></div>
+        <div class="absolute top-40 right-10 w-72 h-72 bg-purple-300 dark:bg-purple-900 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-xl opacity-30 animate-float" style="animation-delay: 2s;"></div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-fade-in">
+                <!-- Professional headshot placeholder -->
+                <!-- A professional headshot of a young software engineer in business casual attire -->
+                <div class="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-4 border-white dark:border-gray-600 shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=400" 
+                         alt="Tuntun Kumar - Professional Headshot" 
+                         class="w-full h-full object-cover">
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 gradient-text" data-bind="user.name">
+                    Tuntun Kumar
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto" data-bind="user.tagline">
+                    Final Year B.E. Student | Aspiring Software Engineer
+                </p>
+                
+                <p class="text-lg text-gray-500 dark:text-gray-400 mb-12 max-w-2xl mx-auto" data-bind="user.description">
+                    I am a final-year Bachelor of Engineering student with a strong interest in software development, databases, and problem-solving.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#projects" class="px-8 py-4 bg-primary-500 text-white rounded-full hover:bg-primary-600 transform hover:scale-105 transition-all duration-200 shadow-lg">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="px-8 py-4 border-2 border-primary-500 text-primary-500 dark:text-primary-400 rounded-full hover:bg-primary-500 hover:text-white transition-all duration-200">
+                        Get In Touch
+                    </a>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="flex justify-center space-x-6 mt-12">
+                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer" 
+                       class="text-2xl text-gray-600 dark:text-gray-400 hover:text-primary-500 transform hover:scale-110 transition-all duration-200">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/tuntun-kumar-01a7a5255/" target="_blank" rel="noopener noreferrer"
+                       class="text-2xl text-gray-600 dark:text-gray-400 hover:text-primary-500 transform hover:scale-110 transition-all duration-200">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:tuntun830344@gmail.com"
+                       class="text-2xl text-gray-600 dark:text-gray-400 hover:text-primary-500 transform hover:scale-110 transition-all duration-200">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-gray-500 dark:text-gray-400 hover:text-primary-500">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero Section -->
+
+    <!-- @COMPONENT: About Section [personal introduction and education] -->
+    <section id="about" class="py-20 bg-gray-50 dark:bg-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">About Me</h2>
+                <div class="w-24 h-1 bg-primary-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="animate-slide-up">
+                        <h3 class="text-2xl font-semibold mb-4">Hello! I'm Tuntun Kumar</h3>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                            I'm a passionate final-year Bachelor of Engineering student specializing in Computer Science/IT, 
+                            set to graduate in 2026. My journey in technology is driven by a deep curiosity for software 
+                            development, database systems, and algorithmic problem-solving.
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                            Throughout my academic journey, I've developed strong foundations in multiple programming 
+                            languages and modern development practices. I believe in writing clean, efficient code 
+                            and am always eager to learn new technologies and frameworks.
+                        </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow-lg">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-graduation-cap text-primary-500 text-2xl mr-3"></i>
+                                <h4 class="text-lg font-semibold">Education</h4>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300">Bachelor of Engineering</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm">Computer Science/IT</p>
+                            <p class="text-primary-500 font-medium">Graduating 2026</p>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow-lg">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-code text-primary-500 text-2xl mr-3"></i>
+                                <h4 class="text-lg font-semibold">Focus</h4>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300">Software Development</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm">Database Design</p>
+                            <p class="text-primary-500 font-medium">Problem Solving</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <!-- A modern workspace setup with multiple monitors showing code and development tools -->
+                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                         alt="Modern programming workspace with code on multiple monitors" 
+                         class="rounded-2xl shadow-2xl w-full">
+                    
+                    <!-- Floating stats cards -->
+                    <div class="absolute -bottom-6 -left-6 bg-white dark:bg-slate-700 p-4 rounded-xl shadow-xl">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary-500">4+</div>
+                            <div class="text-sm text-gray-500 dark:text-gray-400">Languages</div>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -top-6 -right-6 bg-white dark:bg-slate-700 p-4 rounded-xl shadow-xl">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary-500">2026</div>
+                            <div class="text-sm text-gray-500 dark:text-gray-400">Graduation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: About Section -->
+
+    <!-- @COMPONENT: Skills Section [programming languages and technical skills] -->
+    <section id="skills" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Skills & Technologies</h2>
+                <div class="w-24 h-1 bg-primary-500 mx-auto rounded-full"></div>
+                <p class="text-gray-600 dark:text-gray-300 mt-6 max-w-2xl mx-auto">
+                    Here are some of the technologies and concepts I work with
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Programming Languages -->
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-code text-3xl text-primary-500 mr-4"></i>
+                        <h3 class="text-xl font-semibold">Programming Languages</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600 dark:text-gray-300">Python</span>
+                            <div class="flex space-x-1">
+                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600 dark:text-gray-300">Java</span>
+                            <div class="flex space-x-1">
+                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600 dark:text-gray-300">SQL</span>
+                            <div class="flex space-x-1">
+                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600 dark:text-gray-300">C++</span>
+                            <div class="flex space-x-1">
+                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+                                <div class="w-3 h-3 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Core Concepts -->
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-brain text-3xl text-emerald-500 mr-4"></i>
+                        <h3 class="text-xl font-semibold">Core Concepts</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-emerald-500 mr-3"></i>
+                            <span class="text-gray-600 dark:text-gray-300">Object-Oriented Programming</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-emerald-500 mr-3"></i>
+                            <span class="text-gray-600 dark:text-gray-300">Data Structures</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-emerald-500 mr-3"></i>
+                            <span class="text-gray-600 dark:text-gray-300">Database Design</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-emerald-500 mr-3"></i>
+                            <span class="text-gray-600 dark:text-gray-300">Project Architecture</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tools & Technologies -->
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-tools text-3xl text-purple-500 mr-4"></i>
+                        <h3 class="text-xl font-semibold">Tools & Technologies</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fab fa-git-alt text-orange-500 mr-3 text-lg"></i>
+                            <span class="text-gray-600 dark:text-gray-300">Git</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-gamepad text-purple-500 mr-3 text-lg"></i>
+                            <span class="text-gray-600 dark:text-gray-300">Pygame (Python)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-database text-blue-500 mr-3 text-lg"></i>
+                            <span class="text-gray-600 dark:text-gray-300">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional skills badges -->
+            <div class="mt-12 text-center">
+                <h3 class="text-2xl font-semibold mb-8">Also Familiar With</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <!-- @MAP: additionalSkills.map(skill => ( -->
+                    <span class="px-4 py-2 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-primary-100 dark:hover:bg-primary-900 transition-colors duration-200">Data Structures & Algorithms</span>
+                    <span class="px-4 py-2 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-primary-100 dark:hover:bg-primary-900 transition-colors duration-200">Problem Solving</span>
+                    <span class="px-4 py-2 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-primary-100 dark:hover:bg-primary-900 transition-colors duration-200">Software Architecture</span>
+                    <span class="px-4 py-2 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-primary-100 dark:hover:bg-primary-900 transition-colors duration-200">Version Control</span>
+                    <span class="px-4 py-2 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-primary-100 dark:hover:bg-primary-900 transition-colors duration-200">Agile Methodology</span>
+                    <!-- @END_MAP )) -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Skills Section -->
+
+    <!-- @COMPONENT: Projects Section [showcase grid with images and links] -->
+    <section id="projects" class="py-20 bg-gray-50 dark:bg-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Featured Projects</h2>
+                <div class="w-24 h-1 bg-primary-500 mx-auto rounded-full"></div>
+                <p class="text-gray-600 dark:text-gray-300 mt-6 max-w-2xl mx-auto">
+                    A showcase of my work and personal projects that demonstrate my skills and passion for development
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- @MAP: projects.map(project => ( -->
+                
+                <!-- Project 1: Database Management System -->
+                <div class="bg-white dark:bg-slate-700 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+                    <!-- A modern database dashboard interface with charts and data tables -->
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
+                         alt="Database management system interface with analytics dashboard" 
+                         class="w-full h-48 object-cover">
+                    
+                    <div class="p-6" data-mock="true">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-semibold">Database Management System</h3>
+                            <div class="flex space-x-2">
+                                <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full">Python</span>
+                                <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded-full">MySQL</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                            A comprehensive database management system built with Python and MySQL, featuring user authentication, data visualization, and advanced query capabilities.
+                        </p>
+                        <div class="flex space-x-3">
+                            <a href="#" data-event="click:viewProject" class="flex-1 bg-primary-500 text-white text-center py-2 px-4 rounded-lg hover:bg-primary-600 transition-colors duration-200 text-sm">
+                                <i class="fas fa-external-link-alt mr-2"></i>Demo
+                            </a>
+                            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="flex-1 border border-gray-300 dark:border-gray-500 text-center py-2 px-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200 text-sm">
+                                <i class="fab fa-github mr-2"></i>Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2: Python Game Development -->
+                <div class="bg-white dark:bg-slate-700 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+                    <!-- A colorful 2D game interface with characters and game elements -->
+                    <img src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
+                         alt="Colorful 2D game development interface with Python Pygame" 
+                         class="w-full h-48 object-cover">
+                    
+                    <div class="p-6" data-mock="true">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-semibold">Pygame Adventure Game</h3>
+                            <div class="flex space-x-2">
+                                <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 text-xs rounded-full">Python</span>
+                                <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs rounded-full">Pygame</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                            An interactive 2D adventure game developed using Python and Pygame, featuring character movement, collision detection, and multiple levels.
+                        </p>
+                        <div class="flex space-x-3">
+                            <a href="#" data-event="click:viewProject" class="flex-1 bg-primary-500 text-white text-center py-2 px-4 rounded-lg hover:bg-primary-600 transition-colors duration-200 text-sm">
+                                <i class="fas fa-external-link-alt mr-2"></i>Demo
+                            </a>
+                            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="flex-1 border border-gray-300 dark:border-gray-500 text-center py-2 px-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200 text-sm">
+                                <i class="fab fa-github mr-2"></i>Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3: Java Application -->
+                <div class="bg-white dark:bg-slate-700 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+                    <!-- A clean Java application interface with modern GUI elements -->
+                    <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
+                         alt="Modern Java application interface with clean GUI design" 
+                         class="w-full h-48 object-cover">
+                    
+                    <div class="p-6" data-mock="true">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-semibold">Student Management System</h3>
+                            <div class="flex space-x-2">
+                                <span class="px-2 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 text-xs rounded-full">Java</span>
+                                <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full">OOP</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                            A Java-based student management application implementing OOP principles, featuring student records, grade tracking, and report generation.
+                        </p>
+                        <div class="flex space-x-3">
+                            <a href="#" data-event="click:viewProject" class="flex-1 bg-primary-500 text-white text-center py-2 px-4 rounded-lg hover:bg-primary-600 transition-colors duration-200 text-sm">
+                                <i class="fas fa-external-link-alt mr-2"></i>Demo
+                            </a>
+                            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="flex-1 border border-gray-300 dark:border-gray-500 text-center py-2 px-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200 text-sm">
+                                <i class="fab fa-github mr-2"></i>Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4: Web Development Project -->
+                <div class="bg-white dark:bg-slate-700 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+                    <!-- A responsive web application interface showing modern web design -->
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
+                         alt="Modern responsive web application interface with clean design" 
+                         class="w-full h-48 object-cover">
+                    
+                    <div class="p-6" data-mock="true">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-semibold">Portfolio Website</h3>
+                            <div class="flex space-x-2">
+                                <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 text-xs rounded-full">HTML/CSS</span>
+                                <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 text-xs rounded-full">JavaScript</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                            A responsive personal portfolio website showcasing modern web design principles, featuring smooth animations and mobile-first approach.
+                        </p>
+                        <div class="flex space-x-3">
+                            <a href="#" data-event="click:viewProject" class="flex-1 bg-primary-500 text-white text-center py-2 px-4 rounded-lg hover:bg-primary-600 transition-colors duration-200 text-sm">
+                                <i class="fas fa-external-link-alt mr-2"></i>Demo
+                            </a>
+                            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="flex-1 border border-gray-300 dark:border-gray-500 text-center py-2 px-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200 text-sm">
+                                <i class="fab fa-github mr-2"></i>Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5: Data Analysis Project -->
+                <div class="bg-white dark:bg-slate-700 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+                    <!-- A data visualization dashboard with charts and graphs -->
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
+                         alt="Data visualization dashboard with colorful charts and analytics" 
+                         class="w-full h-48 object-cover">
+                    
+                    <div class="p-6" data-mock="true">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-semibold">Data Analysis Tool</h3>
+                            <div class="flex space-x-2">
+                                <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full">Python</span>
+                                <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded-full">Data Analysis</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                            A Python-based data analysis tool for processing and visualizing datasets, featuring statistical analysis and interactive charts.
+                        </p>
+                        <div class="flex space-x-3">
+                            <a href="#" data-event="click:viewProject" class="flex-1 bg-primary-500 text-white text-center py-2 px-4 rounded-lg hover:bg-primary-600 transition-colors duration-200 text-sm">
+                                <i class="fas fa-external-link-alt mr-2"></i>Demo
+                            </a>
+                            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="flex-1 border border-gray-300 dark:border-gray-500 text-center py-2 px-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200 text-sm">
+                                <i class="fab fa-github mr-2"></i>Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6: Algorithm Visualization -->
+                <div class="bg-white dark:bg-slate-700 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+                    <!-- A visualization of sorting algorithms with animated elements -->
+                    <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
+                         alt="Algorithm visualization interface showing sorting algorithms in action" 
+                         class="w-full h-48 object-cover">
+                    
+                    <div class="p-6" data-mock="true">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-semibold">Algorithm Visualizer</h3>
+                            <div class="flex space-x-2">
+                                <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs rounded-full">C++</span>
+                                <span class="px-2 py-1 bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200 text-xs rounded-full">Algorithms</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                            An interactive algorithm visualization tool built with C++, demonstrating various sorting and searching algorithms with step-by-step execution.
+                        </p>
+                        <div class="flex space-x-3">
+                            <a href="#" data-event="click:viewProject" class="flex-1 bg-primary-500 text-white text-center py-2 px-4 rounded-lg hover:bg-primary-600 transition-colors duration-200 text-sm">
+                                <i class="fas fa-external-link-alt mr-2"></i>Demo
+                            </a>
+                            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="flex-1 border border-gray-300 dark:border-gray-500 text-center py-2 px-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200 text-sm">
+                                <i class="fab fa-github mr-2"></i>Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- @END_MAP )) -->
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" 
+                   class="inline-flex items-center px-6 py-3 bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 rounded-lg transition-colors duration-200">
+                    <i class="fab fa-github mr-2"></i>
+                    View More Projects on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Projects Section -->
+
+    <!-- @COMPONENT: Resume Section [download button and highlights] -->
+    <section id="resume" class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Resume</h2>
+                <div class="w-24 h-1 bg-primary-500 mx-auto rounded-full"></div>
+                <p class="text-gray-600 dark:text-gray-300 mt-6 max-w-2xl mx-auto">
+                    Download my resume to learn more about my experience, education, and technical skills
+                </p>
+            </div>
+            
+            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 md:p-12">
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-graduation-cap text-2xl text-primary-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Education</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Bachelor of Engineering</p>
+                        <p class="text-primary-500 font-medium">Computer Science/IT</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-code text-2xl text-primary-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Programming</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Python, Java, SQL, C++</p>
+                        <p class="text-primary-500 font-medium">4+ Languages</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-project-diagram text-2xl text-primary-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Projects</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Database Systems, Games</p>
+                        <p class="text-primary-500 font-medium">Web Applications</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-primary-50 to-blue-50 dark:from-slate-700 dark:to-slate-600 rounded-xl p-8 mb-8">
+                    <h3 class="text-2xl font-bold mb-4">Career Objective</h3>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Seeking opportunities to apply my software development skills and passion for technology 
+                        in a dynamic environment. Eager to contribute to innovative projects while continuing 
+                        to learn and grow as a software engineer.
+                    </p>
+                </div>
+                
+                <div class="space-y-4">
+                    <a href="#" data-implementation="Link to actual PDF resume file" 
+                       data-event="click:downloadResume"
+                       class="inline-flex items-center px-8 py-4 bg-primary-500 text-white rounded-full hover:bg-primary-600 transform hover:scale-105 transition-all duration-200 shadow-lg">
+                        <i class="fas fa-download mr-3"></i>
+                        Download Resume (PDF)
+                    </a>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Last updated: December 2024
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Resume Section -->
+
+    <!-- @COMPONENT: Contact Section [contact form and social links] -->
+    <section id="contact" class="py-20 bg-gray-50 dark:bg-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Get In Touch</h2>
+                <div class="w-24 h-1 bg-primary-500 mx-auto rounded-full"></div>
+                <p class="text-gray-600 dark:text-gray-300 mt-6 max-w-2xl mx-auto">
+                    I'm always open to discussing new opportunities, collaborations, or just having a chat about technology
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6">Let's Connect</h3>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+                            Whether you're looking for a dedicated software engineering intern, want to collaborate 
+                            on a project, or simply want to connect, I'd love to hear from you.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-primary-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <a href="mailto:tuntun830344@gmail.com" class="text-primary-500 hover:text-primary-600">
+                                    tuntun830344@gmail.com
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fab fa-linkedin text-primary-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/tuntun-kumar-01a7a5255/" target="_blank" rel="noopener noreferrer" 
+                                   class="text-primary-500 hover:text-primary-600">
+                                    Connect with me on LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fab fa-github text-primary-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">GitHub</h4>
+                                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" 
+                                   class="text-primary-500 hover:text-primary-600">
+                                    Check out my repositories
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-8">
+                        <h4 class="font-semibold mb-4">Follow me on social media</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/" target="_blank" rel="noopener noreferrer"
+                               class="w-10 h-10 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center hover:bg-primary-500 hover:text-white transition-colors duration-200">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/tuntun-kumar-01a7a5255/" target="_blank" rel="noopener noreferrer"
+                               class="w-10 h-10 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center hover:bg-primary-500 hover:text-white transition-colors duration-200">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="mailto:tuntun830344@gmail.com"
+                               class="w-10 h-10 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center hover:bg-primary-500 hover:text-white transition-colors duration-200">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-white dark:bg-slate-700 rounded-2xl shadow-lg p-8">
+                    <h3 class="text-2xl font-semibold mb-6">Send me a message</h3>
+                    <form class="space-y-6" data-implementation="Implement form submission logic">
+                        <!-- @STATE: formData:object = {name:'', email:'', subject:'', message:''} -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium mb-2">Name</label>
+                            <input type="text" id="name" name="name" required
+                                   class="w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-slate-600 text-gray-900 dark:text-white"
+                                   placeholder="Your Name" data-bind="formData.name">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                            <input type="email" id="email" name="email" required
+                                   class="w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-slate-600 text-gray-900 dark:text-white"
+                                   placeholder="your.email@example.com" data-bind="formData.email">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" required
+                                   class="w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-slate-600 text-gray-900 dark:text-white"
+                                   placeholder="What's this about?" data-bind="formData.subject">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required
+                                      class="w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-slate-600 text-gray-900 dark:text-white resize-none"
+                                      placeholder="Tell me about your project or just say hello!" data-bind="formData.message"></textarea>
+                        </div>
+                        
+                        <button type="submit" data-event="click:handleSubmit" data-implementation="Should validate form and send email"
+                                class="w-full bg-primary-500 text-white py-3 px-6 rounded-lg hover:bg-primary-600 transform hover:scale-105 transition-all duration-200 font-medium">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Contact Section -->
+
+    <!-- @COMPONENT: Footer [simple footer with copyright] -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-gray-700 py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-600 dark:text-gray-400">
+                        © 2024 Tuntun Kumar. All rights reserved.
+                    </p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer"
+                       class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors duration-200">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/tuntun-kumar-01a7a5255/" target="_blank" rel="noopener noreferrer"
+                       class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors duration-200">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:tuntun830344@gmail.com"
+                       class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors duration-200">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        // Theme Toggle Functionality
+        (function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const htmlElement = document.documentElement;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            
+            if (currentTheme === 'dark') {
+                htmlElement.classList.add('dark');
+            }
+            
+            themeToggle.addEventListener('click', function() {
+                htmlElement.classList.toggle('dark');
+                
+                // Save theme preference
+                const newTheme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+                localStorage.setItem('theme', newTheme);
+            });
+        })();
+
+        // Mobile Menu Toggle
+        (function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when clicking on links
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        })();
+
+        // Smooth scrolling for navigation links
+        (function() {
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 80; // Account for fixed header
+                        
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        })();
+
+        // Intersection Observer for animations
+        (function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = '0s';
+                        entry.target.classList.add('animate-fade-in');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe sections for animation
+            const sections = document.querySelectorAll('section > div');
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        })();
+
+        // Form submission handling
+        (function() {
+            const contactForm = document.querySelector('form');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // TODO: Implement actual form submission logic
+                    // This would typically involve sending data to a backend service
+                    
+                    // For now, show a simple alert
+                    alert('Thank you for your message! I will get back to you soon.');
+                    
+                    // Reset form
+                    this.reset();
+                });
+            }
+        })();
+
+        // Add loading states for project links
+        (function() {
+            const projectLinks = document.querySelectorAll('[data-event="click:viewProject"]');
+            
+            projectLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // TODO: Implement project viewing logic
+                    // This would typically open a modal or navigate to project details
+                    
+                    console.log('Project demo clicked');
+                });
+            });
+        })();
+
+        // Resume download functionality
+        (function() {
+            const resumeButton = document.querySelector('[data-event="click:downloadResume"]');
+            
+            if (resumeButton) {
+                resumeButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // TODO: Implement actual resume download
+                    // This would typically link to a PDF file
+                    
+                    console.log('Resume download initiated');
+                    alert('Resume download would start here. Please upload your actual resume PDF.');
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
